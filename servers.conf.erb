@@ -6,7 +6,7 @@ server {
 }
 
 server {
-  server_name workinfrance.fr;
+  server_name workinfrance.fr workinfrance.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://work-in-france.incubateur.social.gouv.fr/$1 permanent;
 }
