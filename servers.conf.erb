@@ -1,3 +1,10 @@
+# Default empty server
+server {
+  listen <%= ENV['PORT'] %> default_server;
+  server_name _;
+  return 444;
+}
+
 server {
   server_name workinfrance.fr;
   listen <%= ENV['PORT'] %>;
