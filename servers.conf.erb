@@ -10,9 +10,3 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://work-in-france.incubateur.social.gouv.fr/$1 permanent;
 }
-
-server {
-  server_name mes-aides.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://www.mesdroitssociaux.gouv.fr/;
-}
