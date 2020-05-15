@@ -16,3 +16,10 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://www.mesdroitssociaux.gouv.fr/;
 }
+
+
+server {
+  server_name webconf.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://webconf.numerique.gouv.fr/;
+}
