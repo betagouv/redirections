@@ -40,3 +40,9 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://code.travail.gouv.fr/;
 }
+
+server {
+  server_name acces4all.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://acceslibre.beta.gouv.fr/$1 permanent;
+}
