@@ -46,3 +46,9 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://acceslibre.beta.gouv.fr/$1 permanent;
 }
+
+server {
+  server_name pix.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://pix.fr/$1 permanent;
+}
