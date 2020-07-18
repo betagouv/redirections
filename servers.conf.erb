@@ -50,5 +50,5 @@ server {
 server {
   server_name pix.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://pix.fr/ permanent;
+  rewrite ^/(.*)$ https://pix.fr/$1 permanent;
 }
