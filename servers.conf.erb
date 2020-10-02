@@ -42,6 +42,12 @@ server {
 }
 
 server {
+  server_name secretariat.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://secretariat.incubateur.net/$1;
+}
+
+server {
   server_name access4all.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://acceslibre.beta.gouv.fr/$1 permanent;
