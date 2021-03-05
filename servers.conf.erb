@@ -58,3 +58,9 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://pix.fr/$1 permanent;
 }
+
+server {
+  server_name www.santepsyetudiants.beta.gouv.fr santepsyetudiants.beta.gouv.fr sante-psy-etudiants.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://santepsy.etudiant.gouv.fr/$1 permanent;
+}
