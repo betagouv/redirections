@@ -68,5 +68,7 @@ server {
 server {
   server_name www.santepsyetudiants.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  proxy_pass https://cheque-psy.osc-secnum-fr1.scalingo.io;
+  location / {
+     proxy_pass https://cheque-psy.osc-secnum-fr1.scalingo.io;
+  }
 }
