@@ -60,7 +60,13 @@ server {
 }
 
 server {
-  server_name www.santepsyetudiants.beta.gouv.fr santepsyetudiants.beta.gouv.fr sante-psy-etudiants.beta.gouv.fr;
+  server_name santepsyetudiants.beta.gouv.fr sante-psy-etudiants.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://santepsy.etudiant.gouv.fr/$1 permanent;
+}
+
+server {
+  server_name www.santepsyetudiants.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  proxy_pass https://cheque-psy.osc-secnum-fr1.scalingo.io;
 }
