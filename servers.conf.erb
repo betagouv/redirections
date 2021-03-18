@@ -14,7 +14,7 @@ server {
 server {
   server_name invites.standup.incubateur.net;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://visio.incubateur.net/b/adm-7nc-ean;
+  rewrite ^/(.*)$ <%= ENV['URL_STANDUP'] %>;
 }
 
 server {
