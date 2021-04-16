@@ -70,3 +70,9 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://mon-entreprise.fr/$1 permanent;
 }
+
+server {
+  server_name tutorat.fonction-publique.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://www.tutorat.fonction-publique.gouv.fr/$1 permanent;
+}
