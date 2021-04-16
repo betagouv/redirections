@@ -70,3 +70,10 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://mon-entreprise.fr/$1 permanent;
 }
+
+server {
+  server_name mrs.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://mrs.cpam31.fr/$1 permanent;
+}
+
