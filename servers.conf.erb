@@ -66,7 +66,14 @@ server {
 }
 
 server {
+  server_name embauche.beta.gouv.fr mon-entreprise.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://mon-entreprise.fr/$1 permanent;
+}
+
+server {
   server_name mrs.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://mrs.cpam31.fr/$1 permanent;
 }
+
