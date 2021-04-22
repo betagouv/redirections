@@ -76,3 +76,9 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://www.tutorat.fonction-publique.gouv.fr/$1 permanent;
 }
+
+server {
+  server_name holodeck.incubateur.net;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://dashlord.incubateur.net/$1 permanent;
+}
