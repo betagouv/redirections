@@ -86,5 +86,5 @@ server {
 server {
   server_name kelrisks.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://errial.georisques.gouv.fr/$1 permanent;
+  rewrite ^/(.*)$ https://errial.georisques.gouv.fr permanent;
 }
