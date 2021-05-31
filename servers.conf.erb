@@ -95,3 +95,11 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://france-chaleur-urbaine.beta.gouv.fr permanent;
 }
+
+
+
+server {
+  server_name app.chauffage-urbain.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://app.france-chaleur-urbaine.beta.gouv.fr permanent;
+}
