@@ -97,9 +97,28 @@ server {
 }
 
 
-
 server {
   server_name app.chauffage-urbain.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://france-chaleur-urbaine.beta.gouv.fr permanent;
 }
+
+## Pass Culture Testing
+server {
+  server_name app.passculture-testing.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://web.testing.passculture.team/$1 permanent;
+}
+
+server {
+  server_name pro.passculture-testing.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://pro.testing.passculture.team/$1 permanent;
+}
+
+server {
+  server_name backend.passculture-testing.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://backend.testing.passculture.team/$1 permanent;
+}
+
