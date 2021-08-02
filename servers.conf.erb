@@ -103,7 +103,9 @@ server {
   rewrite ^/(.*)$ https://france-chaleur-urbaine.beta.gouv.fr permanent;
 }
 
-## Pass Culture Testing
+## Pass Culture
+
+### Testing
 server {
   server_name app.passculture-testing.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
@@ -116,9 +118,41 @@ server {
   rewrite ^/(.*)$ https://pro.testing.passculture.team/$1 permanent;
 }
 
+### Staging
 server {
-  server_name backend.passculture-testing.beta.gouv.fr;
+  server_name app.passculture-staging.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://backend.testing.passculture.team/$1 permanent;
+  rewrite ^/(.*)$ https://web.staging.passculture.team/$1 permanent;
 }
 
+server {
+  server_name pro.passculture-staging.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://pro.staging.passculture.team/$1 permanent;
+}
+
+### Integration
+server {
+  server_name app.passculture-integration.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://web.integration.passculture.app/$1 permanent;
+}
+
+server {
+  server_name pro.passculture-integration.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://integration.passculture.pro/$1 permanent;
+}
+
+### Production
+server {
+  server_name app.passculture.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://web.passculture.app/$1 permanent;
+}
+
+server {
+  server_name pro.passculture.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://passculture.pro/$1 permanent;
+}
