@@ -156,3 +156,11 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://passculture.pro/$1 permanent;
 }
+
+
+server {
+  server_name www.incubateur.net;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://beta.gouv.fr/$1 permanent;
+}
+
