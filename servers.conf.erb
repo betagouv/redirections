@@ -188,3 +188,26 @@ server {
   }
 }
 
+server {
+  server_name dashlord.mte.incubateur.net;
+  listen <%= ENV['PORT'] %>;
+  location / {
+      proxy_pass https://mtes-mct.github.io/dashlord/;
+
+      if ($request_uri ~* "/dashlord/(.*)") {
+          proxy_pass  https://mtes-mct.github.io/dashlord/$1;
+      }
+
+      proxy_intercept_errors  on;
+
+      proxy_redirect          default;
+      proxy_buffering         off;
+      proxy_set_header        Host                 mtes-mct.github.io;
+      proxy_set_header        X-Real-IP            $remote_addr;
+      proxy_set_header        X-Forwarded-For      $proxy_add_x_forwarded_for;
+      proxy_set_header        X-Forwarded-Protocol $scheme;
+
+      # allow GitHub to pass caching headers instead of using our own
+      expires off;
+  }
+}
