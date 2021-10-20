@@ -235,3 +235,9 @@ server {
       expires off;
   }
 }
+
+server {
+  server_name mission-transition.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://mission-transition-ecologique.beta.gouv.fr/$1 permanent;
+}
