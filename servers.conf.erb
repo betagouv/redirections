@@ -115,7 +115,7 @@ server {
 server {
   server_name pro.passculture-testing.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://pro.testing.passculture.team/$1 permanent;
+  rewrite ^ https://pro.testing.passculture.team$uri?redirect=true permanent;
 }
 
 ### Staging
@@ -128,7 +128,7 @@ server {
 server {
   server_name pro.passculture-staging.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://pro.staging.passculture.team/$1 permanent;
+  rewrite ^ https://pro.staging.passculture.team$uri?redirect=true permanent;
 }
 
 ### Integration
