@@ -241,3 +241,10 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://mission-transition-ecologique.beta.gouv.fr/$1 permanent;
 }
+
+
+server {
+  server_name openacademie.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ http://www.openacademie.fr/;
+}
