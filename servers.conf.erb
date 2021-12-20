@@ -20,7 +20,7 @@ server {
 server {
   server_name mes-aides.gouv.fr www.mes-aides.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://www.mesdroitssociaux.gouv.fr/?utm_source=mes-aides-gouv-fr&utm_medium=direct;
+  rewrite ^/(.*)$ https://www.mesdroitssociaux.gouv.fr/?utm_source=mes-aides-gouv-fr&utm_term=direct;
 }
 
 server {
