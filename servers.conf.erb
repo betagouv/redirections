@@ -165,6 +165,27 @@ server {
 }
 
 server {
+  server_name wikicarbone.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  location / {
+      proxy_pass https://wikicarbone.osc-fr1.scalingo.io/;
+
+      if ($request_uri ~* "/(.*)") {
+          proxy_pass  https://wikicarbone.osc-fr1.scalingo.io/$1;
+      }
+
+      proxy_intercept_errors  on;
+
+      proxy_redirect          default;
+      proxy_buffering         off;
+      proxy_set_header        Host                 wikicarbone.osc-fr1.scalingo.io;
+      proxy_set_header        X-Real-IP            $remote_addr;
+      proxy_set_header        X-Forwarded-For      $proxy_add_x_forwarded_for;
+      proxy_set_header        X-Forwarded-Protocol $scheme;
+  }
+}
+
+server {
   server_name dashlord.mte.incubateur.net;
   listen <%= ENV['PORT'] %>;
   location / {
