@@ -221,6 +221,6 @@ server {
 server {
   server_name openacademie.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ http://www.openacademie.fr/$1 permanent;
+  return 301 http://openacademie.fr;
 }
 
