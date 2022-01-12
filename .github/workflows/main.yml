@@ -1,0 +1,29 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: prepare before build
+        run: |
+           sudo apt-get install -qy make apt-transport-https ca-certificates software-properties-common gawk jq parallel curl language-pack-fr
+           uname -a
+      - name: install docker-ce before build
+        run: |
+           curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+           sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+           sudo apt-get -qy update
+           sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+           type -a docker-compose && docker-compose version
+           docker version
+           docker info
+
+      - name: Build & test
+        run: |
+           set -e
+           .ci/build-and-test.sh
