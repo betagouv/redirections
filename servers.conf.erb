@@ -1,8 +1,8 @@
 # Default empty server
 server {
-  listen <%= ENV['PORT'] %> default_server;
-  server_name _
-  return 200 ## TEST FAILED : absense de ;
+  listen <%= ENV['PORT'] PLOP %> default_server; ##  TEST FAILE : erreur de syntax ruby
+  server_name _;  ## TEST non detecté : absense de ;
+  return 200; ## TEST FAILED : absense de ;
 }
 
 server {
