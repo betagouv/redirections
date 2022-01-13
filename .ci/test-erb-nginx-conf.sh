@@ -5,7 +5,7 @@ set -euo pipefail
 
 export LC_ALL=C
 apt-get -qy update
-apt-get -qy install ruby nginx
+apt-get -qy install ruby
 
 cd $(dirname $0)
 
@@ -13,11 +13,10 @@ cd $(dirname $0)
 ( erb -P -x -T '-'  servers.conf.erb  | ruby -c ) || exit $?
 
 # test nginx syntax
- export URL_STANDUP="${URL_STANDUP:-http://test}"
- export PORT=${PORT:-80}
-erb servers.conf.erb > /etc/nginx/conf.d/default.conf
+export URL_STANDUP="${URL_STANDUP:-http://test}"
+export PORT=${PORT:-80}
+erb servers.conf.erb > /etc/nginx/conf.d/servers.conf
 
-#( nginx -t -c /etc/nginx/nginx.conf 2>&1 |  grep "test is successful" ) || exit $?
-( nginx -t -c /etc/nginx/nginx.conf 2>&1 ) ; echo $?
+nginx -t -c /etc/nginx/nginx.conf 2>&1 || exit $?
 
 echo "Test OK"
