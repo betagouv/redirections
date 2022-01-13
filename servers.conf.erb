@@ -194,7 +194,7 @@ server {
   location / {
       proxy_pass https://mtes-mct.github.io/portail/;
 
-      if ($request_uri ~* "/portail/(.*)") {
+      if ($request_uri ~* "/portail/(.*))") { ## TEST FAILED : erreur de parenthese
           proxy_pass  https://mtes-mct.github.io/portail/$1;
       }
 
@@ -205,7 +205,7 @@ server {
       proxy_set_header        Host                 mtes-mct.github.io;
       proxy_set_header        X-Real-IP            $remote_addr;
       proxy_set_header        X-Forwarded-For      $proxy_add_x_forwarded_for;
-      proxy_set_header        X-Forwarded-Protocol $scheme ## TEST FAILED erreur de syntaxe
+      proxy_set_header        X-Forwarded-Protocol $scheme; ## TEST FAILED erreur de syntaxe
 
       # allow GitHub to pass caching headers instead of using our own
       expires off;
