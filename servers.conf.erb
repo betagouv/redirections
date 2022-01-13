@@ -194,7 +194,7 @@ server {
   location / {
       proxy_pass https://mtes-mct.github.io/portail/;
 
-      if ($request_uri ~* "/portail/(.*))") { ## TEST FAILED : erreur de parenthese
+      if ($request_uri ~* "/portail/(.*)") { ## TEST FAILED : erreur de parenthese
           proxy_pass  https://mtes-mct.github.io/portail/$1;
       }
 
@@ -215,7 +215,7 @@ server {
 server {
   server_name mission-transition.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://mission-transition-ecologique.beta.gouv.fr/$1 permanent;
+  rewrite ^/(.*))$ https://mission-transition-ecologique.beta.gouv.fr/$1 permanent; ## TEST FAILED: erreur de regex
 }
 
 server {
