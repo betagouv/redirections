@@ -1,7 +1,7 @@
 # Default empty server
 server {
   listen <%= ENV['PORT'] %> default_server; ##  TEST FAILED : erreur de syntax ruby  ( TEST )
-  server_name _;  ## TEST non detecté : absense de ; sur server_name
+  server_name _;  ## TEST non detecté : absense de ; sur server_name (https://trac.nginx.org/nginx/ticket/1033)
   return 200; ## TEST FAILED : absense de ;
 }
 
@@ -215,7 +215,7 @@ server {
 server {
   server_name mission-transition.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*))$ https://mission-transition-ecologique.beta.gouv.fr/$1 permanent; ## TEST FAILED: erreur de regex
+  rewrite ^/(.*)$ https://mission-transition-ecologique.beta.gouv.fr/$1 permanent; ## TEST FAILED: erreur de regex
 }
 
 server {
