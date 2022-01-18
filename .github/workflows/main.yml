@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    branches-ignore: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: prepare before build
+        run: |
+           sudo apt-get install -qy make curl
+           uname -a
+           docker-compose version
+           docker version
+           docker info
+
+      - name: Build & test
+        run: |
+           set -e
+           make -C .ci test

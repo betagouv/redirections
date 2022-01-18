@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  check-nginx-conf:
+    image: nginx:stable
+    ports:
+      - "80:80"
+    environment:
+      - PORT=${PORT:-80}
+      - URL_STANDUP=${URL_STANDUP:-http://test}
+    command:
+      - '/data/test-erb-nginx-conf.sh'
+    volumes:
+      - ./test-erb-nginx-conf.sh:/data/test-erb-nginx-conf.sh
+      - ../servers.conf.erb:/data/servers.conf.erb
