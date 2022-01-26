@@ -215,7 +215,7 @@ server {
 server {
   server_name mission-transition.beta.gouv.fr mission-transition-ecologique.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ http://www.mission-transition-ecologique.beta.gouv.fr/$1 permanent;
+  rewrite ^/(.*)$ https://master-7rqtwti-tgiaev3y33zec.eu-5.platformsh.site/$1 permanent;
 }
 
 server {
