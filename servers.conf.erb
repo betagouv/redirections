@@ -218,7 +218,7 @@ server {
   location / {
       proxy_pass https://master-7rqtwti-tgiaev3y33zec.eu-5.platformsh.site/;
 
-      if ($request_uri ~* "/portail/(.*)") {
+      if ($request_uri ~* "/(.*)") {
           proxy_pass  https://master-7rqtwti-tgiaev3y33zec.eu-5.platformsh.site/$1;
       }
 
