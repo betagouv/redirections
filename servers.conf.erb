@@ -215,7 +215,25 @@ server {
 server {
   server_name mission-transition.beta.gouv.fr mission-transition-ecologique.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://master-7rqtwti-tgiaev3y33zec.eu-5.platformsh.site/$1 permanent;
+  location / {
+      proxy_pass https://master-7rqtwti-tgiaev3y33zec.eu-5.platformsh.site/;
+
+      if ($request_uri ~* "/portail/(.*)") {
+          proxy_pass  https://master-7rqtwti-tgiaev3y33zec.eu-5.platformsh.site/$1;
+      }
+
+      proxy_intercept_errors  on;
+
+      proxy_redirect          default;
+      proxy_buffering         off;
+      proxy_set_header        Host                 master-7rqtwti-tgiaev3y33zec.eu-5.platformsh.site;
+      proxy_set_header        X-Real-IP            $remote_addr;
+      proxy_set_header        X-Forwarded-For      $proxy_add_x_forwarded_for;
+      proxy_set_header        X-Forwarded-Protocol $scheme;
+
+      # allow Platformsh to pass caching headers instead of using our own
+      expires off;
+  }
 }
 
 server {
