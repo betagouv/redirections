@@ -266,3 +266,8 @@ server {
   return 301 $scheme://openacademie.fr$request_uri;
 }
 
+server {
+  server_name peps.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 $scheme://rex-agri.agroecologie.org$request_uri;
+}
