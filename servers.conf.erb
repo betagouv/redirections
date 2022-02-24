@@ -141,7 +141,7 @@ server {
 server {
   server_name pro.passculture-integration.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://integration.passculture.pro/$1 permanent;
+  rewrite ^/(.*)$ https://integration.passculture.pro$uri?redirect=true permanent;
 }
 
 ### Production
@@ -154,7 +154,7 @@ server {
 server {
   server_name pro.passculture.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://passculture.pro/$1 permanent;
+  rewrite ^/(.*)$ https://passculture.pro$uri?redirect=true permanent;
 }
 
 
