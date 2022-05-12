@@ -109,7 +109,7 @@ server {
 server {
   server_name app.passculture-testing.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://web.testing.passculture.team/$1 permanent;
+  rewrite ^/(.*)$ https://app.testing.passculture.team/$1 permanent;
 }
 
 server {
@@ -122,7 +122,7 @@ server {
 server {
   server_name app.passculture-staging.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://web.staging.passculture.team/$1 permanent;
+  rewrite ^/(.*)$ https://app.staging.passculture.team/$1 permanent;
 }
 
 server {
@@ -135,7 +135,7 @@ server {
 server {
   server_name app.passculture-integration.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://web.integration.passculture.app/$1 permanent;
+  rewrite ^/(.*)$ https://integration.passculture.app/$1 permanent;
 }
 
 server {
@@ -148,7 +148,7 @@ server {
 server {
   server_name app.passculture.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://web.passculture.app/$1 permanent;
+  rewrite ^/(.*)$ https://passculture.app/$1 permanent;
 }
 
 server {
