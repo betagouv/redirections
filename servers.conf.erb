@@ -227,5 +227,5 @@ server {
 server {
   server_name wikicarbone.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://ecobalyse.beta.gouv.fr/$1 permanent;
+  return 301 $scheme://ecobalyse.beta.gouv.fr$request_uri;
 }
