@@ -227,5 +227,5 @@ server {
 server {
   server_name wikicarbone.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  return 301 $scheme://ecobalyse.beta.gouv.fr$request_uri;
+  return 301 https://ecobalyse.beta.gouv.fr$request_uri;
 }
