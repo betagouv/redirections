@@ -233,12 +233,6 @@ server {
 server {
   server_name documentation.histologe.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://fabrique-numerique.gitbook.io/documentation-histologe/$1 permanent;
-}
-
-server {
-  server_name documentation.histologe.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
   location / {
       proxy_pass https://fabrique-numerique.gitbook.io/documentation-histologe/;
 
