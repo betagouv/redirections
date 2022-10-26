@@ -230,8 +230,3 @@ server {
   return 301 https://ecobalyse.beta.gouv.fr$request_uri;
 }
 
-server {
-  server_name faq.histologe.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://fabrique-numerique.gitbook.io/histologe/$1 permanent;
-}
