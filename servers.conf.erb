@@ -206,3 +206,10 @@ server {
   return 301 https://ecobalyse.beta.gouv.fr$request_uri;
 }
 
+server {
+  server_name sparte.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://mondiagnosticartificialisation.beta.gouv.fr$request_uri;
+}
+
+
