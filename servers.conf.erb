@@ -72,9 +72,9 @@ server {
 }
 
 server {
-  server_name tutorat.fonction-publique.gouv.fr;
+  server_name tutorat.fonction-publique.gouv.fr www.tutorat.fonction-publique.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://www.tutorat.fonction-publique.gouv.fr/$1 permanent;
+  rewrite ^/(.*)$ https://www.fonction-publique.gouv.fr/ redirect;
 }
 
 server {
