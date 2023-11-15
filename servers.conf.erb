@@ -217,3 +217,9 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://mission-transition-ecologique.beta.gouv.fr;
 }
+
+server {
+  server_name impact.beta.gouv.fr wwww.impact.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://portail-rse.beta.gouv.fr$request_uri;
+}
