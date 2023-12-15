@@ -217,3 +217,9 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://mission-transition-ecologique.beta.gouv.fr;
 }
+
+server {
+  server_name eig.etalab.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://www.eig.numerique.gouv.fr$request_uri;
+}
