@@ -225,7 +225,7 @@ server {
 }
   
 server {
-  server_name impact.beta.gouv.fr wwww.impact.beta.gouv.fr;
+  server_name impact.beta.gouv.fr www.impact.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   return 301 https://portail-rse.beta.gouv.fr$request_uri;
 }
