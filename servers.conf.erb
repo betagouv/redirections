@@ -209,7 +209,13 @@ server {
 server {
   server_name sparte.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  return 301 https://mondiagnosticartificialisation.beta.gouv.fr$request_uri;
+  return 301 https://mondiagartif.beta.gouv.fr$request_uri;
+}
+
+server {
+  server_name mondiagnosticartificialisation.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://mondiagartif.beta.gouv.fr$request_uri;
 }
 
 server {
