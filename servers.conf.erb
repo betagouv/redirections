@@ -165,6 +165,12 @@ server {
 }
 
 server {
+  server_name sparte.beta.gouv.fr mondiagnosticartificialisation.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^/(.*)$ https://mondiagartif.beta.gouv.fr/$1; permanent;
+}
+
+server {
   server_name dashlord.mte.incubateur.net;
   listen <%= ENV['PORT'] %>;
   location / {
@@ -204,18 +210,6 @@ server {
   server_name wikicarbone.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   return 301 https://ecobalyse.beta.gouv.fr$request_uri;
-}
-
-server {
-  server_name sparte.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  return 301 https://mondiagartif.beta.gouv.fr$request_uri;
-}
-
-server {
-  server_name mondiagnosticartificialisation.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  return 301 https://mondiagartif.beta.gouv.fr$request_uri;
 }
 
 server {
