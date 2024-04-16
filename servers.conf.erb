@@ -167,7 +167,7 @@ server {
 server {
   server_name sparte.beta.gouv.fr mondiagnosticartificialisation.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://mondiagartif.beta.gouv.fr/$1; permanent;
+  rewrite ^/(.*)$ https://mondiagartif.beta.gouv.fr/$1 permanent;
 }
 
 server {
@@ -230,3 +230,8 @@ server {
   return 301 https://portail-rse.beta.gouv.fr$request_uri;
 }
 
+server {
+  server_name cje.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://cje.fabrique.social.gouv.fr;
+}
