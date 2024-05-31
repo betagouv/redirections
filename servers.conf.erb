@@ -235,3 +235,9 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://cje.fabrique.social.gouv.fr;
 }
+
+server {
+  server_name stop-punaises.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://stop-punaises.gouv.fr$request_uri;
+}
