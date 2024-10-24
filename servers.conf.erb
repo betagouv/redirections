@@ -241,3 +241,9 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://stop-punaises.gouv.fr$request_uri;
 }
+
+server {
+  server_name comparia.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 302 https://www.comparia.beta.gouv.fr$request_uri;
+}
