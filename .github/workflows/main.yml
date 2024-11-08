@@ -2,13 +2,13 @@ name: Test
 
 on:
   push:
-    branches-ignore: [ main ]
+    branches-ignore: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v2
