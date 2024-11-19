@@ -223,7 +223,7 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://www.eig.numerique.gouv.fr$request_uri;
 }
-  
+
 server {
   server_name impact.beta.gouv.fr www.impact.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
@@ -242,8 +242,13 @@ server {
   return 301 https://stop-punaises.gouv.fr$request_uri;
 }
 
+  server_name mon-suivi-justice.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://www.justice.fr/mon-suivi-justice;
+}
+
 server {
   server_name comparia.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  return 302 https://www.comparia.beta.gouv.fr$request_uri;
+  return 301 https://www.comparia.beta.gouv.fr$request_uri;
 }
