@@ -247,3 +247,9 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://www.justice.fr/mon-suivi-justice;
 }
+
+server {
+  server_name comparia.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://www.comparia.beta.gouv.fr$request_uri;
+}
