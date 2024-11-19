@@ -242,6 +242,7 @@ server {
   return 301 https://stop-punaises.gouv.fr$request_uri;
 }
 
+server {
   server_name mon-suivi-justice.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   return 301 https://www.justice.fr/mon-suivi-justice;
