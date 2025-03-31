@@ -12,13 +12,7 @@ Dans ce dépôt, créez une pull request en [ajoutant votre domaine dans `server
 
 Le déploiement est automatique une fois la PR mergée par un membre de l'équipe.
 
-### 2) configuration de Scalingo
-
-Déclarer `anciendomaine` parmi les domaines de l'app redirections dans [la console scalingo](https://dashboard.scalingo.com/apps/osc-fr1/betagouv-redirections/settings/domains)
-
-> 👉 Si vous n'avez pas accès à cette app, vous pouvez demander sur le chan `#incubateur-ops` du Mattermost.
-
-### 3) configuration du DNS:
+### 2) configuration du DNS:
 
 Déclarer un enregistrement CNAME de `anciendomaine` vers `betagouv-redirections.osc-fr1.scalingo.io.`
 
@@ -26,6 +20,13 @@ Vous devez avoir accès à la configuration DNS du domaine redirigé.
 
  - Si `anciendomaine` est de la forme `ancien.beta.gouv.fr` c'est la zone DNS `beta.gouv.fr` qu'il faut modifier
  - Si `anciendomaine` est de la forme `site.ancien.beta.gouv.fr` c'est la zone DNS `ancien.beta.gouv.fr` qu'il faut modifier
+
+### 3) configuration de Scalingo
+
+Déclarer `anciendomaine` parmi les domaines de l'app redirections dans [la console scalingo](https://dashboard.scalingo.com/apps/osc-fr1/betagouv-redirections/settings/domains)
+
+> 👉 Si vous n'avez pas accès à cette app, vous pouvez demander sur le chan `#incubateur-ops` du Mattermost.
+
 
 ## Notes
 Si vous hésitez, demandez de l'aide sur Mattermost:
