@@ -4,13 +4,28 @@ Vous pouvez par exemple rediriger : https://workinfrance.beta.gouv.fr vers https
 
 ## Comment utiliser ?
 
-La redirection fonctionne sous réserve de ces *trois* conditions:
-1. configuration de la redirection `anciendomaine` -> `nouveaudomaine` dans ce dépôt: créez une pull request en ajoutant votre domaine dans `servers.conf.erb` (si vous voulez de l'aide sur le config nginx, vous pouvez demander sur `#incubateur-ops` sur le Mattermost); le déploiement est automatique
-2. configuration du DNS: `anciendomaine` est un CNAME vers `betagouv-redirections.osc-fr1.scalingo.io.`
-    - Vous devez avoir accès à la configuration DNS du domaine redirigé. Si `anciendomaine` est de la forme `ancien.beta.gouv.fr` c'est la zone DNS `beta.gouv.fr` qu'il faut modifier sur OVH (vous pouvez demander sur `#incubateur-ops` sur le Mattermost)
-3. configuration de Scalingo: déclarer `anciendomaine` parmi les domaines de l'app redirection
-    - Vous devez avoir accès à la console Scalingo de l'app `betagouv-redirections`. A défaut, vous coordonner avec des personnes qui ont ces accès; vous pouvez demander sur le chan `#incubateur-ops` du Mattermost beta. Il faut faire idéalement cette action avant d'avoir ajouté le CNAME dans les DNS et après s'être assuré que l'URL cible fonctionnait bien.
+La redirection fonctionne sous réserve de ces *trois* conditions, à réaliser dans l'ordre :
 
+### 1) configuration de la redirection `anciendomaine` -> `nouveaudomaine`
+
+Dans ce dépôt, créez une pull request en [ajoutant votre domaine dans `servers.conf.erb`](https://github.com/betagouv/redirections/edit/master/servers.conf.erb)
+
+Le déploiement est automatique une fois la PR mergée par un membre de l'équipe.
+
+### 2) configuration de Scalingo
+
+Déclarer `anciendomaine` parmi les domaines de l'app redirections dans [la console scalingo](https://dashboard.scalingo.com/apps/osc-fr1/betagouv-redirections/settings/domains)
+
+> 👉 Si vous n'avez pas accès à cette app, vous pouvez demander sur le chan `#incubateur-ops` du Mattermost.
+
+### 3) configuration du DNS:
+
+Déclarer un enregistrement CNAME de `anciendomaine` vers `betagouv-redirections.osc-fr1.scalingo.io.`
+
+Vous devez avoir accès à la configuration DNS du domaine redirigé. 
+
+ - Si `anciendomaine` est de la forme `ancien.beta.gouv.fr` c'est la zone DNS `beta.gouv.fr` qu'il faut modifier
+ - Si `anciendomaine` est de la forme `site.ancien.beta.gouv.fr` c'est la zone DNS `ancien.beta.gouv.fr` qu'il faut modifier
 
 ## Notes
 Si vous hésitez, demandez de l'aide sur Mattermost:
