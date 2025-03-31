@@ -9,7 +9,7 @@ La redirection fonctionne sous réserve de ces *trois* conditions:
 2. configuration du DNS: `anciendomaine` est un CNAME vers `betagouv-redirections.osc-fr1.scalingo.io.`
     - Vous devez avoir accès à la configuration DNS du domaine redirigé. Si `anciendomaine` est de la forme `ancien.beta.gouv.fr` c'est la zone DNS `beta.gouv.fr` qu'il faut modifier sur OVH (vous pouvez demander sur `#incubateur-ops` sur le Mattermost)
 3. configuration de Scalingo: déclarer `anciendomaine` parmi les domaines de l'app redirection
-    - Vous devez avoir accès à la console Scalingo de l'app `betagouv-redirection`. A défaut, vous coordonner avec des personnes qui ont ces accès; vous pouvez demander sur le chan `#incubateur-ops` du Mattermost beta. Il faut faire idéalement cette action juste après avoir ajouté le cname dans les DNS.
+    - Vous devez avoir accès à la console Scalingo de l'app `betagouv-redirections`. A défaut, vous coordonner avec des personnes qui ont ces accès; vous pouvez demander sur le chan `#incubateur-ops` du Mattermost beta. Il faut faire idéalement cette action avant d'avoir ajouté le CNAME dans les DNS et après s'être assuré que l'URL cible fonctionnait bien.
 
 
 ## Notes
