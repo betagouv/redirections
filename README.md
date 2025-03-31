@@ -25,8 +25,9 @@ Vous devez avoir accès à la configuration DNS du domaine redirigé.
 
 Déclarer `anciendomaine` parmi les domaines de l'app redirections dans [la console scalingo](https://dashboard.scalingo.com/apps/osc-fr1/betagouv-redirections/settings/domains)
 
-> 👉 Si vous n'avez pas accès à cette app, vous pouvez demander sur le chan `#incubateur-ops` du Mattermost.
+Cette déclaration doit idéalement se faire immediatement après la modification des DNS pour éviter tout downtime.
 
+> 👉 Si vous n'avez pas accès à cette app, vous pouvez demander sur le chan `#incubateur-ops` du Mattermost.
 
 ## Notes
 Si vous hésitez, demandez de l'aide sur Mattermost:
