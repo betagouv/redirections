@@ -249,6 +249,12 @@ server {
 }
 
 server {
+  server_name probationnaire.mon-suivi-justice.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://agents.mon-suivi-justice.beta.gouv.fr/convict_interface;
+}
+
+server {
   server_name comparia.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   return 301 https://www.comparia.beta.gouv.fr$request_uri;
