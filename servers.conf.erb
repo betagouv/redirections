@@ -259,3 +259,9 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://www.comparia.beta.gouv.fr$request_uri;
 }
+
+server {
+  server_name numerique.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://www.numerique.gouv.fr$request_uri;
+}
