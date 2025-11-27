@@ -68,7 +68,7 @@ server {
 server {
   server_name embauche.beta.gouv.fr mon-entreprise.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://mon-entreprise.fr/$1 permanent;
+  rewrite ^/(.*)$ https://mon-entreprise.urssaf.fr/$1 permanent;
 }
 
 server {
