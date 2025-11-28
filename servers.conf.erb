@@ -265,3 +265,15 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://www.numerique.gouv.fr$request_uri;
 }
+
+server {
+  server_name www.mrs.beta.gouv.fr
+  listen <%= ENV['PORT'] %>;
+  return 301 https://remboursement-transport.contact-cpam.fr;
+}
+
+server {
+  server_name mrs.beta.gouv.fr
+  listen <%= ENV['PORT'] %>;
+  return 301 https://remboursement-transport.contact-cpam.fr;
+}
