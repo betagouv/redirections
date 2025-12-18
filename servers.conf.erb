@@ -265,3 +265,9 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://www.numerique.gouv.fr$request_uri;
 }
+
+server {
+  server_name mesaidesreno.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://mesaides.france-renov.gouv.fr$request_uri;
+}
