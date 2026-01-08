@@ -271,3 +271,15 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://mesaides.france-renov.gouv.fr$request_uri;
 }
+
+server {
+  server_name api.app.eva.beta.gouv.fr eva.beta.gouv.fr/pro;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://pro.eva.anlci.gouv.fr/$request_uri;
+}
+
+server {
+  server_name eva.beta.gouv.fr www.eva.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://eva.anlci.gouv.fr/$request_uri;
+}
