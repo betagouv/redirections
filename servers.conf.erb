@@ -279,6 +279,18 @@ server {
 }
 
 server {
+  server_name eva.beta.gouv.fr/jeux
+  listen <%= ENV['PORT'] %>;
+  return 301 https://eva.beta.gouv.fr/jeu/$request_uri;
+}
+
+server {
+  server_name eva.beta.gouv.fr/jeu eva.beta.gouv.fr/jeu/index.html;
+  listen <%= ENV['PORT'] %>;
+  rewrite ^(.*)$ https://eva.anlci.gouv.fr/jeu/$1 permanent;
+}
+
+server {
   server_name eva.beta.gouv.fr www.eva.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   return 301 https://eva.anlci.gouv.fr/$request_uri;
