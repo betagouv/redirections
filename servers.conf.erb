@@ -271,3 +271,9 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://mesaides.france-renov.gouv.fr$request_uri;
 }
+
+server {
+  server_name standards.incubateur.net;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://standards.beta.gouv.fr$request_uri;
+}
