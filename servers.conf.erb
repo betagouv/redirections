@@ -294,7 +294,7 @@ server {
   location /jeux {
     return 301 https://jeu.eva.anlci.gouv.fr?$query_string;
   }
-  location ^~ /jeu/ {
+  location ^~ /jeu {
     proxy_pass https://eva.anlci.gouv.fr/jeu/;
     proxy_redirect          default;
     proxy_buffering         off;
