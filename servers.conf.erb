@@ -295,8 +295,7 @@ server {
     return 301 https://jeu.eva.anlci.gouv.fr?$query_string;
   }
   location /jeu {
-    set $upstream https://eva.anlci.gouv.fr;
-    proxy_pass $upstream;
+    proxy_pass https://eva.anlci.gouv.fr;
     proxy_redirect          default;
     proxy_buffering         off;
     proxy_set_header        Host                 eva.anlci.gouv.fr;
