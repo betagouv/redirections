@@ -277,3 +277,27 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://standards.beta.gouv.fr$request_uri;
 }
+
+server {
+  server_name api.app.eva.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://pro.eva.anlci.gouv.fr$request_uri;
+}
+
+server {
+  server_name eva.incubateur.net;
+  listen <%= ENV['PORT'] %>;
+  location /pro {
+    return 301 https://pro.eva.anlci.gouv.fr$request_uri;
+  }
+  location /jeux {
+    return 301 https://jeu.eva.anlci.gouv.fr$request_uri;
+  }
+  location /jeu {
+    set $upstream https://eva.anlci.gouv.fr;
+    proxy_pass $upstream;
+  }
+  location / {
+    return 301 https://eva.anlci.gouv.fr$request_uri;
+  }
+}
