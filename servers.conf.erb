@@ -316,36 +316,3 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://pro.eva.anlci.gouv.fr$request_uri;
 }
-
-server {
-  server_name eva.incubateur.net;
-  resolver 1.1.1.1;
-  listen <%= ENV['PORT'] %>;
-  location /pro {
-    return 301 https://pro.eva.anlci.gouv.fr;
-  }
-  location /jeux {
-    return 301 https://jeu.eva.anlci.gouv.fr?$query_string;
-  }
-  location ^~ /jeu/ {
-    proxy_pass https://eva.anlci.gouv.fr;
-    proxy_redirect          default;
-    proxy_buffering         off;
-    proxy_set_header        Host                 eva.anlci.gouv.fr;
-    proxy_set_header        X-Real-IP            $remote_addr;
-    proxy_set_header        X-Forwarded-For      $proxy_add_x_forwarded_for;
-    proxy_set_header        X-Forwarded-Protocol $scheme;
-  }
-  location ^~ /jeu {
-    proxy_pass https://eva.anlci.gouv.fr/jeu/;
-    proxy_redirect          default;
-    proxy_buffering         off;
-    proxy_set_header        Host                 eva.anlci.gouv.fr;
-    proxy_set_header        X-Real-IP            $remote_addr;
-    proxy_set_header        X-Forwarded-For      $proxy_add_x_forwarded_for;
-    proxy_set_header        X-Forwarded-Protocol $scheme;
-  }
-  location / {
-    return 301 https://eva.anlci.gouv.fr$request_uri;
-  }
-}
