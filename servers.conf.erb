@@ -269,7 +269,7 @@ server {
 server {
   server_name www.mrs.beta.gouv.fr mrs.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
-  return 301 https://remboursement-transport.contact-cpam.fr;
+  return 301 https://remboursement-transport.contact-cpam.fr$request_uri;
 }
 
 server {
