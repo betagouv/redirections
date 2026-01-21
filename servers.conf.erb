@@ -286,12 +286,13 @@ server {
 
 server {
   server_name eva.incubateur.net;
+  resolver 1.1.1.1;
   listen <%= ENV['PORT'] %>;
   location /pro {
-    return 301 https://pro.eva.anlci.gouv.fr$request_uri;
+    return 301 https://pro.eva.anlci.gouv.fr;
   }
   location /jeux {
-    return 301 https://jeu.eva.anlci.gouv.fr$request_uri;
+    return 301 https://jeu.eva.anlci.gouv.fr?$query_string;
   }
   location /jeu {
     set $upstream https://eva.anlci.gouv.fr;
