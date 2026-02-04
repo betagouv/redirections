@@ -322,3 +322,9 @@ server {
   listen <%= ENV['PORT'] %>;
   return 301 https://pro.eva.anlci.gouv.fr$request_uri;
 }
+
+server {
+  server_name bhasile.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://placedasile.beta.gouv.fr$request_uri;
+}
