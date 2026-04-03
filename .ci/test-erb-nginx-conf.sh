@@ -25,6 +25,9 @@ export URL_STANDUP="${URL_STANDUP:-http://test}"
 export PORT=${PORT:-80}
 erb $nginx_servers_erb > /etc/nginx/conf.d/$nginx_servers_conf
 
+cat /etc/nginx/conf.d/$nginx_servers_conf
+cat /etc/nginx/nginx.conf
+
 echo "# test nginx $nginx_servers_conf syntax"
 nginx -t -c /etc/nginx/nginx.conf 2>&1 || exit $?
 
