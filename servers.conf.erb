@@ -245,13 +245,8 @@ server {
 }
 
 server {
-  server_name entrepreneur-interet-general.etalab.gouv.fr www.entrepreneur-interet-general.etalab.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  return 301 https://eig.numerique.gouv.fr/;
-}
-
-server {
   server_name code.etalab.gouv.fr;
   listen <%= ENV['PORT'] %>;
   return 301 https://code.gouv.fr/;
 }
+
