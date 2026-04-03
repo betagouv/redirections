@@ -6,18 +6,6 @@ server {
 }
 
 server {
-  server_name workinfrance.fr workinfrance.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://work-in-france.fabrique.social.gouv.fr/$1 permanent;
-}
-
-server {
-  server_name invites.standup.incubateur.net;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ <%= ENV['URL_STANDUP'] %>;
-}
-
-server {
   server_name mes-aides.gouv.fr www.mes-aides.gouv.fr;
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://www.mesdroitssociaux.gouv.fr/;
@@ -30,21 +18,9 @@ server {
 }
 
 server {
-  server_name emjpm.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://emjpm.fabrique.social.gouv.fr/;
-}
-
-server {
   server_name code-du-travail.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://code.travail.gouv.fr/;
-}
-
-server {
-  server_name secretariat.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://secretariat.incubateur.net/$1;
 }
 
 server {
@@ -78,12 +54,6 @@ server {
 }
 
 server {
-  server_name holodeck.incubateur.net;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://dashlord.incubateur.net/$1 permanent;
-}
-
-server {
   server_name kelrisks.beta.gouv.fr;
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://errial.georisques.gouv.fr permanent;
@@ -102,62 +72,7 @@ server {
   listen <%= ENV['PORT'] %>;
   rewrite ^/(.*)$ https://france-chaleur-urbaine.beta.gouv.fr permanent;
 }
-
-## Pass Culture
-
-### Testing
-server {
-  server_name app.passculture-testing.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://app.testing.passculture.team/$1 permanent;
-}
-
-server {
-  server_name pro.passculture-testing.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^ https://pro.testing.passculture.team$uri?redirect=true permanent;
-}
-
-### Staging
-server {
-  server_name app.passculture-staging.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://app.staging.passculture.team/$1 permanent;
-}
-
-server {
-  server_name pro.passculture-staging.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^ https://pro.staging.passculture.team$uri?redirect=true permanent;
-}
-
-### Integration
-server {
-  server_name app.passculture-integration.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://integration.passculture.app/$1 permanent;
-}
-
-server {
-  server_name pro.passculture-integration.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://integration.passculture.pro$uri?redirect=true permanent;
-}
-
-### Production
-server {
-  server_name app.passculture.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://passculture.app/$1 permanent;
-}
-
-server {
-  server_name pro.passculture.beta.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  rewrite ^/(.*)$ https://passculture.pro$uri?redirect=true permanent;
-}
-
-
+ 
 server {
   server_name www.incubateur.net;
   listen <%= ENV['PORT'] %>;
@@ -330,13 +245,8 @@ server {
 }
 
 server {
-  server_name entrepreneur-interet-general.etalab.gouv.fr www.entrepreneur-interet-general.etalab.gouv.fr;
-  listen <%= ENV['PORT'] %>;
-  return 301 https://eig.numerique.gouv.fr/;
-}
-
-server {
   server_name code.etalab.gouv.fr;
   listen <%= ENV['PORT'] %>;
   return 301 https://code.gouv.fr/;
 }
+
