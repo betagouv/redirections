@@ -250,3 +250,9 @@ server {
   return 301 https://code.gouv.fr/;
 }
 
+server {
+  server_name albert.sites.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://ia.numerique.gouv.fr/outils-ia/albert-api;
+}
+
