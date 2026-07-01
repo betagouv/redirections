@@ -256,3 +256,9 @@ server {
   return 301 https://ia.numerique.gouv.fr/outils-ia/albert-api;
 }
 
+server {
+  server_name www.document-ia.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://beta.gouv.fr/startups/document-ia;
+}
+
