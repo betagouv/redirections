@@ -262,3 +262,9 @@ server {
   return 301 https://beta.gouv.fr/startups/document-ia;
 }
 
+server {
+  server_name declare-douane.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://www.douane.gouv.fr/declaredouane/ihm/accueil;
+}
+
