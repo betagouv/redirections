@@ -244,3 +244,16 @@ server {
   return 301 https://www.douane.gouv.fr/declaredouane/ihm/accueil;
 }
 
+
+server {
+  server_name audiodescription.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://audiodescription.culture.gouv.fr/;
+}
+
+
+server {
+  server_name patrimony.audiodescription.beta.gouv.fr;
+  listen <%= ENV['PORT'] %>;
+  return 301 https://patrimony.audiodescription.culture.gouv.fr/;
+}
